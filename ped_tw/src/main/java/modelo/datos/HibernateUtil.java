@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 /**
  * Clase para gestionar una SessionFactory, utilizada para obtener sesiones
- * en Hibernate.
+ * en Hibernate utilizando el patrón Singleton.
  * 
  * Nos va a permitir tener una sola instancia de SessionFactory a la que podremos
  * llamar desde distintas clases de la app para crear sesiones cuando necesitemos
@@ -28,14 +28,25 @@ public class HibernateUtil {
 		cargarDatosDemo();
 	}
 	
+	/**
+	 * Método que devuelve la sessionFactory
+	 * @return	la sessionFactory
+	 */
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 	
+	/**
+	 * Método para cerrar la sessionFactory
+	 */
 	public static void closeSessionFactory() {
 		sessionFactory.close();
 	}
 	
+	/**
+	 * Método privado que carga los datos de prueba de la bbdd.
+	 * Se llama a este método durante la generación de la sessionFactory.
+	 */
 	private static void cargarDatosDemo() {
 		Usuario u1 = new Usuario("arimarfra", "guiness", "ariana", "martinez", "ari@mail.com", "111222333", RolUsuario.ADMIN);
 		Usuario u2 = new Usuario("marloz", "cruzcampo", "maria", "lozano", "maria@mail.com", "222333444", RolUsuario.JEFE);
