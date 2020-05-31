@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    width: 100;
+    height: 50px;
+    text-align: center;
+    padding: 20px 0 0;
+    background-color: #5C4270;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+    background-color: #8F1D52;
+    height: 60px;
+}
+
+#menu {
+    list-style: none;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+
+#menu li {
+    display: inline-block;
+    padding: 20px 60px;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#menu li a: active {
+    font-weight: bold;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    background-color: #FAF1DE;
+}
+
+section h2 {
+    display: block; 
+    margin: auto;
+    text-align: center;
+    margin: 50px auto;
+}
+
+#formulario, #tabla, #login {
+    display: block;
+    width: 650px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#formulario input,
+#tabla input,
+#tabla select,
+#login form input {
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #bbb;
+    box-sizing: border-box;
+}
+
+#formulario input[type="submit" i],
+#tabla input[type="submit" i],
+#login form input[type="submit" i] {
+    color: #fff;
+    background-color: #8F1D52;
+    border: none;
+    width: 200px;
+    font-weight: bold;
+}
+
+#login form {margin-top: 50px;}
+
+#login {
+    height: auto;
+    padding: 60px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+}
+
+#tabla table {width: 100%;}
+
+#tabla thead td {
+    color: #fff;
+    background-color: #8F1D52 !important;
+}
+
+#tabla td {
+    padding: 5px;
+    border: 1px solid #f9f9f9;
+    margin: 0;
+    background-color: #fff;
+}
