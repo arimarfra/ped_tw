@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"><!-- HOJA DE ESTILOS-->
+    <link rel="stylesheet" type="text/css" href="/webapp/style.css"><!-- HOJA DE ESTILOS-->
 </head>
 <body>
     
@@ -14,15 +14,15 @@
         <h1>Formulario de autenticación</h1>
         <form action="Login">
             <label>Usuario:</label>
-            <s:textfield id="usuario" name="idUsuario" placeholder="Usuario"/> 
+            <s:textfield name="idUsuario" placeholder="Usuario"/> 
             <br>
             <br>
             <label>Contraseña:</label>
-            <s:password id="password" name="password" placeholder="Contraseña"/> 
+            <s:password name="password" placeholder="Contraseña"/> 
             <br>
             <br>
             <s:submit value="Validar"/>
-        </form>
+         </form>
     </section>
     
     
