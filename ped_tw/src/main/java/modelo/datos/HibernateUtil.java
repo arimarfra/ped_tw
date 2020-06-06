@@ -48,7 +48,7 @@ public class HibernateUtil {
 	 * Se llama a este método durante la generación de la sessionFactory.
 	 */
 	private static void cargarDatosDemo() {
-		Usuario u1 = new Usuario("arimarfra", "guiness", "ariana", "martinez", "ari@mail.com", "111222333", RolUsuario.ADMIN);
+		Usuario u1 = new Usuario("arimarfra", "guiness", "ari", "martinez", "ari@mail.com", "111222333", RolUsuario.ADMIN);
 		Usuario u2 = new Usuario("marloz", "cruzcampo", "maria", "lozano", "maria@mail.com", "222333444", RolUsuario.JEFE);
 		Usuario u3 = new Usuario("guiheralf", "aguila", "guillermo", "hernandez", "guille@mail.com", "333444555", RolUsuario.EMPLEADO);
 		Usuario u4 = new Usuario("jaraquin", "gazpacho", "jara", "quintana", "jara@mail.com", "444555666", RolUsuario.EMPLEADO);
