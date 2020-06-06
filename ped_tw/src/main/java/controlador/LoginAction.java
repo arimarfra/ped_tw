@@ -1,5 +1,10 @@
 package controlador;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.Session;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import modelo.datos.GestorUsuarios;
@@ -13,7 +18,7 @@ import modelo.datos.GestorUsuarios;
  * @author Ariana Martínez
  *
  */
-public class LoginAction extends ActionSupport {
+public class LoginAction extends ActionSupport implements SessionAware {
 	
 	/**
 	 * Constructor sin parámetros.
@@ -38,6 +43,7 @@ public class LoginAction extends ActionSupport {
 		String resultado="";
 		if(gu.validarUsuario(idUsuario, password)) {
 			resultado="success";
+			session.put("usuario", gu.getUsuario(idUsuario));
 		} else {
 			resultado="input";
 		}
@@ -67,6 +73,7 @@ public class LoginAction extends ActionSupport {
 	
 	private String idUsuario;
 	private String password;
+	private Map<String, Object> session;
 	
 	public String getIdUsuario() {
 		return idUsuario;
@@ -79,6 +86,12 @@ public class LoginAction extends ActionSupport {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session=session;		
 	}
 	
 }
