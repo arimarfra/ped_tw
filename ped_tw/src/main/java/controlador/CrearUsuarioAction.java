@@ -35,118 +35,59 @@ public class CrearUsuarioAction extends ActionSupport {
 	 * 
 	 */
 	public String execute() {
-		//RolUsuario rolEnum = identificarRol(rol);
-		Usuario usu = new Usuario(idUsuario, password, nombre, apellidos, 
-									email, telefono, rol); 
-		gestor.crearUsuario(usu);
-		Usuario guardado = gestor.getUsuario(idUsuario);
+//		Usuario usu = new Usuario(idUsuario, password, nombre, apellidos, 
+//									email, telefono, rol); 
+//		gestor.crearUsuario(usu);
+		usuario.setRol(rol);
+		gestor.crearUsuario(usuario);
+		Usuario guardado = gestor.getUsuario(usuario.getIdUsuario());
 		System.out.println(guardado);
 		System.out.println(guardado.getRol());
 		return "success";
 	}
 	
 	public void validate() {
-		if(!passwordConf.equals(password)) {
+		if(!passwordConf.equals(usuario.getPassword())) {
 			addFieldError("passwordConf",getText("password.distinta"));
 		}
-		if((!email.contains("@")||(!email.contains(".")))) {
-			addFieldError("email", getText("email.invalido"));
+		if((!usuario.getEmail().contains("@")||(!usuario.getEmail().contains(".")))) {
+			addFieldError("usuario.email", getText("email.invalido"));
 		}
-		if(gestor.getUsuario(idUsuario)!=null) {
-			addFieldError("idUsuario", getText("usuario.existe"));
+		if(gestor.getUsuario(usuario.getIdUsuario())!=null) {
+			addFieldError("usuario.idUsuario", getText("usuario.existe"));
 		}
 	}
 	
-	private String idUsuario;	
-	private String password;
+	public String previoInput() {
+		return "success";
+	}
+	
+	private Usuario usuario;
+	private String rol;
 	private String passwordConf;
-	private String nombre;
-	private String apellidos;
-	private String email;
-	private String telefono;
-//	private String rol;
-	private RolUsuario rol;
-	
-	public String getIdUsuario() {
-		return idUsuario;
-	}
 
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
 	public String getPasswordConf() {
-		return password;
+		return passwordConf;
 	}
 
-	public void setPasswordConf(String password) {
-		this.passwordConf = password;
+	public void setPasswordConf(String passwordConf) {
+		this.passwordConf = passwordConf;
 	}
-
-	public String getNombre() {
-		return nombre;
+	
+	public Usuario getUsuario() {
+		return usuario;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario=usuario;
 	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public RolUsuario getRol() {
+	
+	public String getRol() {
 		return rol;
 	}
-
-//	public void setRol(String rol) {
-//		this.rol = rol;
-//	}
 	
-	public void setRol(String rolString) {
-		if(rolString.equalsIgnoreCase("admin")){
-			rol=RolUsuario.ADMIN;
-		} else if (rolString.equalsIgnoreCase("jefe de proyecto")) {
-			rol=RolUsuario.JEFE;
-		} else {
-			rol = RolUsuario.EMPLEADO;
-		}
-	}
-
-//	private RolUsuario identificarRol(String rolString) {
-//		RolUsuario rolEnum = RolUsuario.EMPLEADO;
-//		if(rolString.equalsIgnoreCase("admin")){
-//			rolEnum=RolUsuario.ADMIN;
-//		} else if (rolString.equalsIgnoreCase("jefe de proyecto")) {
-//			rolEnum=RolUsuario.JEFE;
-//		}
-//	}
+	public void setRol(String rol) {
+		this.rol=rol;
+	}	
+	
 }
